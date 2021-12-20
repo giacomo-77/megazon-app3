@@ -23,6 +23,8 @@ export const lazyLoad = <
   const LazyComponent = lazy(lazyFactory);
 
   return (props: React.ComponentProps<U>): JSX.Element => (
+    /* Suspense è un oggetto di React che consente di ritardare il suo rendering:
+       non verrà mostrato fino al termine del suo caricamento, ma nel frattempo verrà mostrato un componente di attesa. */
     <Suspense fallback={opts.fallback!}>
       <LazyComponent {...props} />
     </Suspense>

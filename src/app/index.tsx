@@ -36,3 +36,8 @@ export function App() {
     </BrowserRouter>
   );
 }
+
+/* Helmet gestisce il titolo della pagina, quello visualizzato nella tab della pagina web;
+   Le parti importanti sono BrowserRouter e Switch;
+   <Switch> si occupa della visualizzazione dei componenti grafici a seconda dell'url mostrata nella barra del browser;
+   i Route vengono valutati in sequenza, quindi se non viene trovata nessuna Route valida avrò un 404. */

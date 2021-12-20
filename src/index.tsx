@@ -15,7 +15,7 @@ import FontFaceObserver from 'fontfaceobserver';
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css';
-
+//GIA: equivalente ad 'app/index', perché di default viene importato il file index contenuto.
 import { App } from 'app';
 
 import { HelmetProvider } from 'react-helmet-async';

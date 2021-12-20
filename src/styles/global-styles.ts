@@ -1,3 +1,5 @@
+/*GIA: questo file è uno "styled component" che rappresentano contenuti css: vengono creati attraverso il metodo "createGlobalStyle",
+       cui passo una stringa che posso personalizzare iniettandovi del codice JavaScript.*/
 import { createGlobalStyle } from 'styled-components';
 import { StyleConstants } from './StyleConstants';
 /* istanbul ignore next */
