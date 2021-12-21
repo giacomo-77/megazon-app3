@@ -2,12 +2,12 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { countersSaga } from './saga';
-import { CountersState } from './types';
+import { Counter, CountersState } from './types';
 
 export const initialState: CountersState = {
   counters: [
-    { id: 0, value: 0 },
-    { id: 1, value: 0 },
+    /*{ id: 0, value: 0 },
+    { id: 1, value: 0 },*/
   ],
 };
 
@@ -29,7 +29,7 @@ const slice = createSlice({
       )[0];
       counter.value = counter.value - 1;
     },
-    addCounter(state, action: PayloadAction<number>) {
+    addCounterGG(state, action: PayloadAction<number>) {
       state.counters = [...state.counters, { id: action.payload, value: 0 }];
     },
     addCounterLB(state) {
@@ -39,6 +39,12 @@ const slice = createSlice({
         Number.MIN_SAFE_INTEGER,
       );
       state.counters.push({ id: maxId + 1, value: 0 });
+    },
+    startLoadCounters(state) {
+      state.counters = [];
+    },
+    loadCountersDone(state, action: PayloadAction<Counter[]>) {
+      state.counters = action.payload;
     },
     someAction(state, action: PayloadAction<any>) {},
   },

@@ -3,7 +3,8 @@
  * Counters
  *
  */
-import * as React from 'react';
+import React, { useEffect } from 'react';
+//import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { useCountersSlice } from './slice';
@@ -23,8 +24,12 @@ export function Counters(props: Props) {
     dispatch(actions.decrementCounter(id));
   };
   const addCounter = (id: number) => {
-    dispatch(actions.addCounter(id));
+    dispatch(actions.addCounterGG(id));
   };
+
+  useEffect(() => {
+    dispatch(actions.startLoadCounters());
+  }, [actions, dispatch]); //GIA: funzione {} e array [] delle dipendenze.
 
   return (
     <Div>
