@@ -29,9 +29,6 @@ const slice = createSlice({
       )[0];
       counter.value = counter.value - 1;
     },
-    addCounterGG(state, action: PayloadAction<number>) {
-      state.counters = [...state.counters, { id: action.payload, value: 0 }];
-    },
     addCounterLB(state) {},
     startLoadCounters(state) {
       state.counters = [];
