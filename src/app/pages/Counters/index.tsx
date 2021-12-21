@@ -49,7 +49,7 @@ export function Counters(props: Props) {
           )
         }
       >
-        Add Counter
+        Add Counter GG
       </button>
       <button onClick={() => dispatch(actions.addCounterLB())}>
         Add Counter LB

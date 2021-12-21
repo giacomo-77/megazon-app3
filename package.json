@@ -76,7 +76,9 @@
     "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
     "prettify": "prettier --write",
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate-mock-data": "node internals/buildScripts/generateMockData",
+    "start-mockapi": "json-server --watch data/db.json --port 3001"
   },
   "browserslist": {
     "production": [
@@ -119,5 +121,8 @@
         "statements": 90
       }
     }
+  },
+  "devDependencies": {
+    "json-server": "0.17.0"
   }
 }
