@@ -24,7 +24,7 @@ function* loadCounters() {
   yield put(actions.loadCountersDone(counters));
 }
 
-function* incrementCounter(action: PayloadAction<number>) {
+function* updateCounter(action: PayloadAction<number>) {
   //PayloadAction<number>: PayloadAction che riceve un number.
   //GIA: in saga si fa così per recuperare un certo ... del nostro stato:
   const counters: Counter[] = yield select(selectCounters);
@@ -46,5 +46,7 @@ export function* countersSaga() {
   // yield takeLatest(actions.someAction.type, doSomething);
   yield takeLatest(actions.startLoadCounters.type, loadCounters);
   //GIA: ora vogliamo che tutti gli incrementi vengano registrati.
-  yield takeEvery(actions.incrementCounter.type, incrementCounter);
+  yield takeEvery(actions.incrementCounter.type, updateCounter);
+  //GIA: decremento.
+  yield takeEvery(actions.decrementCounter.type, updateCounter);
 }
