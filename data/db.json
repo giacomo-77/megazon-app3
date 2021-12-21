@@ -1,6 +1,12 @@
 {
   "counters": [
-    { "id": 0, "value": 15 },
-    { "id": 1, "value": 0 }
+    {
+      "id": 0,
+      "value": 7
+    },
+    {
+      "id": 1,
+      "value": 8
+    }
   ]
 }
