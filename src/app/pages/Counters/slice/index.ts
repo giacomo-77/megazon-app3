@@ -15,6 +15,14 @@ const slice = createSlice({
   name: 'counters',
   initialState,
   reducers: {
+    //GIA: reducer che viene eseguito dallo store nel momento in cui viene eseguita l'action che come payload ha l'id del contatore;
+    //     la PayloadAction ha in sè il tipo di azione ed un valore di cui apriori non so il tipo.
+    incrementCounter(state, action: PayloadAction<number>) {
+      const counter = state.counters.filter(
+        counter => counter.id === action.payload,
+      )[0];
+      counter.value = counter.value + 1;
+    },
     someAction(state, action: PayloadAction<any>) {},
   },
 });
