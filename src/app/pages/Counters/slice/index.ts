@@ -23,6 +23,12 @@ const slice = createSlice({
       )[0];
       counter.value = counter.value + 1;
     },
+    decrementCounter(state, action: PayloadAction<number>) {
+      const counter = state.counters.filter(
+        counter => counter.id === action.payload,
+      )[0];
+      counter.value = counter.value - 1;
+    },
     someAction(state, action: PayloadAction<any>) {},
   },
 });

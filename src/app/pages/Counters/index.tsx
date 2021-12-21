@@ -19,6 +19,9 @@ export function Counters(props: Props) {
   const incrementCounter = (id: number) => {
     dispatch(actions.incrementCounter(id));
   };
+  const decrementCounter = (id: number) => {
+    dispatch(actions.decrementCounter(id));
+  };
 
   return (
     <Div>
@@ -27,7 +30,7 @@ export function Counters(props: Props) {
           <li key={counter.id}>
             Counter {counter.id}: {counter.value}
             <button onClick={() => incrementCounter(counter.id)}>+</button>
-            <button>-</button>
+            <button onClick={() => decrementCounter(counter.id)}>-</button>
           </li>
         ))}
       </ul>
