@@ -29,6 +29,17 @@ const slice = createSlice({
       )[0];
       counter.value = counter.value - 1;
     },
+    addCounter(state, action: PayloadAction<number>) {
+      state.counters = [...state.counters, { id: action.payload, value: 0 }];
+    },
+    addCounterLB(state) {
+      const maxId = state.counters.reduce(
+        (a, v) => (v.id > a ? v.id : a),
+        //GIA: il valore iniziale di 'a'.
+        Number.MIN_SAFE_INTEGER,
+      );
+      state.counters.push({ id: maxId + 1, value: 0 });
+    },
     someAction(state, action: PayloadAction<any>) {},
   },
 });

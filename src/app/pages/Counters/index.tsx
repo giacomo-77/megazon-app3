@@ -22,6 +22,9 @@ export function Counters(props: Props) {
   const decrementCounter = (id: number) => {
     dispatch(actions.decrementCounter(id));
   };
+  const addCounter = (id: number) => {
+    dispatch(actions.addCounter(id));
+  };
 
   return (
     <Div>
@@ -34,6 +37,23 @@ export function Counters(props: Props) {
           </li>
         ))}
       </ul>
+      <button
+        onClick={() =>
+          addCounter(
+            Math.max.apply(
+              Math,
+              counters.map(function (o) {
+                return o.id + 1;
+              }),
+            ),
+          )
+        }
+      >
+        Add Counter
+      </button>
+      <button onClick={() => dispatch(actions.addCounterLB())}>
+        Add Counter LB
+      </button>
     </Div>
   );
 }
