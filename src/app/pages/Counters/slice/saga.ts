@@ -40,6 +40,17 @@ function* updateCounter(action: PayloadAction<number>) {
   });
 }
 
+function* addCounter(action: PayloadAction<number>) {
+  yield call(request, 'http://localhost:3001/counters', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json; charset=utf-8',
+    },
+    body: JSON.stringify({ value: 0 }),
+  });
+  yield call(loadCounters);
+}
+
 //GIA: è una funzione generatrice, che ritorna un iteratore, ovvero qualcosa su cui posso chiamare "next"... è una funzione che ritorna più valori;
 //     gli effetti della libreria saga (take, call, put, select, takeLatest) gli dicono cosa fare.
 export function* countersSaga() {
@@ -49,4 +60,6 @@ export function* countersSaga() {
   yield takeEvery(actions.incrementCounter.type, updateCounter);
   //GIA: decremento.
   yield takeEvery(actions.decrementCounter.type, updateCounter);
+
+  yield takeEvery(actions.addCounterLB.type, addCounter);
 }
