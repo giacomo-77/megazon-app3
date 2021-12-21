@@ -31,10 +31,12 @@ export function App() {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/book" component={BookPage} />
+        <Route exact path="/books/:id" component={BookPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
   );
 }
+/* Il Router si innesta nell'history del browser;
+   nel tag <BrowserRouter> includiamo tutto quello che deve essere gestito dal router */
