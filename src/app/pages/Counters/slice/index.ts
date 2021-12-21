@@ -4,7 +4,12 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { countersSaga } from './saga';
 import { CountersState } from './types';
 
-export const initialState: CountersState = {};
+export const initialState: CountersState = {
+  counters: [
+    { id: 0, value: 0 },
+    { id: 1, value: 0 },
+  ],
+};
 
 const slice = createSlice({
   name: 'counters',
