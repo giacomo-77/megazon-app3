@@ -5,4 +5,7 @@ import { initialState } from '.';
 
 const selectSlice = (state: RootState) => state.counters || initialState;
 
-export const selectCounters = createSelector([selectSlice], state => state);
+export const selectCounters = createSelector(
+  [selectSlice],
+  state => state.counters,
+);
